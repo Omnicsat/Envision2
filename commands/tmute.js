@@ -14,10 +14,11 @@ module.exports = {
 				.setRequired(true))
 		.setDefaultPermission(false),
 	async execute(interaction) {
+		await interaction.deferReply();
 		const user = interaction.options.getMentionable('user');
 		const timeout = interaction.options.getNumber('timeout');
 		const channel = interaction.channel;
-		interaction.reply(`${user} has been muted for ${timeout} minutes!`);
+		interaction.editReply(`${user} has been muted for ${timeout} minutes!`);
 
     	let operativeRole = interaction.guild.roles.cache.find(role => role.name === "muted");
     	user.roles.add(operativeRole);
