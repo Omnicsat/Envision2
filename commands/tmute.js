@@ -14,7 +14,7 @@ module.exports = {
 				.setRequired(true))
 		.setDefaultPermission(false),
 	async execute(interaction) {
-		interaction.deferReply();
+		await interaction.deferReply();
 		const user = interaction.options.getMentionable('user');
 		const timeout = interaction.options.getNumber('timeout');
 		const channel = interaction.channel;
